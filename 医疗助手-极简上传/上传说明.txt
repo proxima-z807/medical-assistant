@@ -1,0 +1,20 @@
+医疗助手 - 极简云部署包（只需上传这 5 个文件）
+
+文件说明：
+1. jar.part1
+2. jar.part2   （两个分片拼起来就是完整可执行 jar，含前端页面）
+3. Dockerfile  （Render 构建镜像用，自动拼接两个分片）
+4. render.yaml （Render Blueprint 配置）
+5. 上传说明.txt
+
+上传步骤：
+1. 打开 GitHub，新建仓库（名称 medical-assistant，Public/Private 均可）。
+2. 进入仓库，点 Add file -> Upload files。
+3. 打开本文件夹，选中这 5 个文件一起上传（不要上传文件夹本身），点 Commit changes。
+4. 打开 https://render.com，用 GitHub 登录，New -> Blueprint，选择该仓库，Apply。
+5. 等待构建完成，打开形如 https://medical-assistant-xxxx.onrender.com 的网址。
+6. 用 patient / 123456 登录，立即点右上角用户名 -> 修改密码，至少改掉 admin 与 doctor。
+
+注意：
+- Render 免费层没有持久磁盘，容器重启后数据会重置为演示数据；长期保存需加 1GB Disk（约 $7/月）。
+- 免费层会休眠，第一次打开可能需要 30-60 秒。

@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: medical-assistant
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/system/access-info
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: APP_DATA_DIR
+        value: /data
+      - key: SPRING_PROFILES_ACTIVE
+        value: h2
